@@ -17,7 +17,7 @@ void scan(int* In, int* Out, int* B, int* C, int n) {
 	
 	scan(B, C, B+n/2, C+n/2, n/2);
 	cout << "C:" << endl;
-	for (int i = 0; i < n/2; i++) cout << In[i] << " ";
+	for (int i = 0; i < n/2; i++) cout << C[i] << " ";
 	cout << endl;
 	
 	Out[0] = In[0];
