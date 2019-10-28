@@ -1,10 +1,14 @@
 CC = g++
 CFLAGS = -O2 -I../c++ -mcx16 -march=native -DCILK -fcilkplus -std=c++11
 
-all:	reduce
+all:	reduce scan
 
 reduce:	reduce.cpp
 	$(CC) $(CFLAGS) -DNDEBUG reduce.cpp -o reduce
 	
+reduce:	scan.cpp
+	$(CC) $(CFLAGS) -DNDEBUG scan.cpp -o scan
+
+	
 clean:
-	rm -f reduce
+	rm -f reduce scan
