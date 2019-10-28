@@ -6,7 +6,7 @@ all:	reduce scan
 reduce:	reduce.cpp
 	$(CC) $(CFLAGS) -DNDEBUG reduce.cpp -o reduce
 	
-reduce:	scan.cpp
+scan:	scan.cpp
 	$(CC) $(CFLAGS) -DNDEBUG scan.cpp -o scan
 
 	
