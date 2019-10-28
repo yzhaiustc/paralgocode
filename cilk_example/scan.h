@@ -27,6 +27,7 @@ void scan(int* In, int* Out, int* B, int* C, int n) {
 	cout << endl;
 	
 	cilk_for (int i = 1; i < n; i++) {
+		cout << i << " " << C[(i-1)/2] << " " << In[i] << endl;
 		if (i%2) Out[i] = C[(i-1)/2] + In[i];
 		else Out[i] = C[i/2];
 	}
