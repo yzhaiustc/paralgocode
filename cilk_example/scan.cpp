@@ -19,6 +19,9 @@ int main(int argc, char** argv) {
 	timer t; t.start();
 	scan(A, B, e1, e2, n);
 	t.stop(); cout << "time: " << t.get_total() << endl;
+	for (int i = 0; i < n; i++) {
+		cout << B[i] << " " << endl;
+	}
 	
 	return 0;
 }
