@@ -9,6 +9,7 @@ using namespace std;
 
 int main(int argc, char** argv) {
 	int n = atoi(argv[1]);
+	cout << n << endl;
 	int* A = new int[n];
 	int* B = new int[n];
 	int* e1 = new int[n];
