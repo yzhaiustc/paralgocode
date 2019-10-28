@@ -1,6 +1,7 @@
 using namespace std;
 
 void scan(int* In, int* Out, int* B, int* C, int n) {
+	cout << "n = " << n << endl;
 	if (n==0) return;
 	if (n==1) {
 		Out[0] = In[0];
@@ -21,6 +22,10 @@ void scan(int* In, int* Out, int* B, int* C, int n) {
 	cout << endl;
 	
 	Out[0] = In[0];
+	cout << "In:" << endl;
+	for (int i = 0; i < n; i++) cout << In[i] << " ";
+	cout << endl;
+	
 	cilk_for (int i = 1; i < n; i++) {
 		if (i%2) Out[i] = C[(i-1)/2] + In[i];
 		else Out[i] = C[i/2];
