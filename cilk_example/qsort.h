@@ -12,13 +12,13 @@ void qsort(int* A, int start, int end) {
 	int* e1 = new int[end-start];
 	int* e2 = new int[end-start];
 	for (int i = start; i < end; i++) {
-		A2[i] = A[i];
+		A2[i-start] = A[i];
 		cout << A[i] << " ";
 	}
 	cout << endl;
 	
 	cilk_for (int i = start; i < end; i++) {
-		if (A2[i] < pivot) F[i-start] = 1; else F[i-start] = 0;
+		if (A2[i-start] < pivot) F[i-start] = 1; else F[i-start] = 0;
 	}
 	scan(F, B, e1, e2, end-start);
 	cout << "scan1 ok" << endl;
@@ -30,8 +30,8 @@ void qsort(int* A, int start, int end) {
 	
 	cilk_for (int i = start+1; i < end; i++) {
 		if (F[i-start]) {
-			cout << "index " << start+B[i-start]-1 << " will be " << A2[i] << endl;
-			A[start+B[i-start]-1] = A2[i];
+			cout << "index " << start+B[i-start]-1 << " will be " << A2[i-start] << endl;
+			A[start+B[i-start]-1] = A2[i-start];
 		}
 	}
 	
@@ -46,13 +46,13 @@ void qsort(int* A, int start, int end) {
 	A[start+x] = pivot;
 
 	cilk_for (int i = start+1; i < end; i++) {
-		if (A2[i] >= pivot) F[i-start] = 1; else F[i-start] = 0;
+		if (A2[i-start] >= pivot) F[i-start] = 1; else F[i-start] = 0;
 	}
 	scan(F, B, e1, e2, end-start);
 	cout << "scan2 ok" << endl;
 	
 	cilk_for (int i = start+1; i < end; i++) {
-		if (F[i-start]) A[start+x+B[i-start]] = A2[i];
+		if (F[i-start]) A[start+x+B[i-start]] = A2[i-start];
 	}	
 	
 	cout << "After filter: " << endl;
