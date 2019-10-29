@@ -36,13 +36,13 @@ void qsort(int* A, int start, int end) {
 	cout << "x = " << x << endl;
 	A[x] = pivot;
 
-	cilk_for (int i = start; i < end; i++) {
+	cilk_for (int i = start+1; i < end; i++) {
 		if (A2[i] >= pivot) F[i-start] = 1; else F[i-start] = 0;
 	}
 	scan(F, B, e1, e2, end-start);
 	cout << "scan2 ok" << endl;
 	
-	cilk_for (int i = start; i < end; i++) {
+	cilk_for (int i = start+1; i < end; i++) {
 		if (F[i-start]) A[x+B[i-start]] = A2[i];
 	}	
 	
@@ -50,6 +50,7 @@ void qsort(int* A, int start, int end) {
 	for (int i = start; i < end; i++) {
 		cout << A[i] << " ";
 	}
+	cout << endl;
 	
 	cilk_spawn
 	qsort(A, start, x);
