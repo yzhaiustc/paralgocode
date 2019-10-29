@@ -23,6 +23,12 @@ int main(int argc, char** argv) {
 	int* A = new int[n];
 	cilk_for (int i = 0; i < n; i++) A[i] = (hash32(i)) % (n*2);
 	
+	A2 = new int[end-start];
+	B = new int[end-start];
+	F = new int[end-start];
+	e1 = new int[end-start];
+	e2 = new int[end-start];
+	
 	timer t; t.start();
 	qsort(A, 0, n);
 	t.stop(); cout << "time: " << t.get_total() << endl;
