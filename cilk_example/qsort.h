@@ -11,7 +11,7 @@ int* e2;
 
 void qsort(int* A, int start, int end) {
 	if (start == end) return;
-	if (start < end-100) {
+	if (start > end-100) {
 		sort(A+start, A+end);
 		return;
 	}
