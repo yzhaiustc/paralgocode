@@ -17,7 +17,7 @@ void qsort(int* A, int start, int end) {
 	}
 	cout << endl;
 	
-	cilk_for (int i = start+1; i < end; i++) {
+	cilk_for (int i = start; i < end; i++) {
 		if (A2[i] < pivot) F[i-start] = 1; else F[i-start] = 0;
 	}
 	scan(F, B, e1, e2, end-start);
