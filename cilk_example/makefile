@@ -9,8 +9,8 @@ reduce:	reduce.cpp
 scan:	scan.cpp
 	$(CC) $(CFLAGS) -DNDEBUG scan.cpp -o scan
 
-qsort:	qsort.cpp
-	$(CC) $(CFLAGS) -DNDEBUG qsort.cpp -o qsort
+qsort:	quicksort.cpp
+	$(CC) $(CFLAGS) -DNDEBUG quicksort.cpp -o qsort
 
 	
 clean:
