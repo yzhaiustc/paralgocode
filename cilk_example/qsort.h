@@ -11,15 +11,13 @@ int* e2;
 
 void qsort(int* A, int start, int end) {
 	if (start == end) return;
-	if (start == end-100) {
+	if (start < end-100) {
 		sort(A+start, A+end);
 		return;
 	}
 	int pivot = A[start];
 
-	cilk_for (int i = start; i < end; i++) {
-		A2[i] = A[i];
-	}
+	cilk_for (int i = start; i < end; i++) A2[i] = A[i];
 	
 	cilk_for (int i = start; i < end; i++) {
 		if (A2[i] < pivot) F[i] = 1; else F[i] = 0;
@@ -27,8 +25,7 @@ void qsort(int* A, int start, int end) {
 	scan(F+start, B+start, e1+start, e2+start, end-start);
 	
 	cilk_for (int i = start+1; i < end; i++) {
-		if (F[i]) 
-			A[start+B[i]-1] = A2[i];
+		if (F[i]) A[start+B[i]-1] = A2[i];
 	}
 	
 	int x = B[end-1];
