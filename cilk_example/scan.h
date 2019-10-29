@@ -22,15 +22,15 @@ void scan(int* In, int* Out, int* B, int* C, int n) {
 	cout << endl;
 	
 	Out[0] = In[0];
-	Out[1] = In[0] + In[1];
+	//Out[1] = In[0] + In[1];
 	cout << "In:" << endl;
 	for (int i = 0; i < n; i++) cout << In[i] << " ";
 	cout << endl;
 	
-	cilk_for (int i = 2; i < n; i++) {
-		cout << i << " " << C[(i-1)/2] << " " << In[i] << endl;
-		if (i%2) Out[i] = C[i/2-1] + In[i];
-		else Out[i] = C[i/2-1];
+	cilk_for (int i = 1; i < n; i++) {
+		//cout << i << " " << C[(i-1)/2] << " " << In[i] << endl;
+		if (i%2) Out[i] = C[i/2];
+		else Out[i] = C[i/2-1] + In[i];
 	}
 	cout << "Out:" << endl;
 	for (int i = 0; i < n; i++) cout << Out[i] << " ";
