@@ -1,6 +1,8 @@
 #include "scan.h"
+using namespace std;
 
 void qsort(int* A, int start, int end) {
+	cout << start << " " << end << endl;
 	if (start == end) return;
 	if (start == end-1) return;
 	int pivot = A[start];
@@ -9,26 +11,36 @@ void qsort(int* A, int start, int end) {
 	int* F = new int[end-start];
 	int* e1 = new int[end-start];
 	int* e2 = new int[end-start];
-	cilk_for (int i = start; i < end; i++) {
+	for (int i = start; i < end; i++) {
 		A2[i] = A[i];
+		cout << A[i] << " ";
 	}
+	cout << endl;
 	
 	cilk_for (int i = start; i < end; i++) {
 		if (A2[i] < pivot) F[i-start] = 1; else F[i-start] = 0;
 	}
 	scan(F, B, e1, e2, end-start);
+	cout << "scan1 ok" << endl;
+
+	for (int i = start; i < end; i++) {
+		cout << B[i] << " ";
+	}
+	cout << endl;
 	
 	cilk_for (int i = start; i < end; i++) {
 		if (F[i-start]) A[B[i-start]-1] = A2[i];
 	}
 	
 	int x = F[end-start];
+	cout << x << endl;
 	A[x] = pivot;
 
 	cilk_for (int i = start; i < end; i++) {
 		if (A2[i] >= pivot) F[i-start] = 1; else F[i-start] = 0;
 	}
 	scan(F, B, e1, e2, end-start);
+	cout << "scan2 ok" << endl;
 	
 	cilk_for (int i = start; i < end; i++) {
 		if (F[i-start]) A[x+B[i-start]] = A2[i];
