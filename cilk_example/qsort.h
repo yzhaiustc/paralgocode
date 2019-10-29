@@ -32,7 +32,7 @@ void qsort(int* A, int start, int end) {
 		if (F[i-start]) A[B[i-start]-1] = A2[i];
 	}
 	
-	int x = F[end-start];
+	int x = F[end-start-1];
 	cout << x << endl;
 	A[x] = pivot;
 
