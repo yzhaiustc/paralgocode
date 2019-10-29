@@ -32,8 +32,8 @@ void qsort(int* A, int start, int end) {
 		if (F[i-start]) A[B[i-start]-1] = A2[i];
 	}
 	
-	int x = F[end-start-1];
-	cout << x << endl;
+	int x = B[end-start-1];
+	cout << "x= " << x << endl;
 	A[x] = pivot;
 
 	cilk_for (int i = start; i < end; i++) {
