@@ -29,8 +29,10 @@ void qsort(int* A, int start, int end) {
 	cout << endl;
 	
 	cilk_for (int i = start+1; i < end; i++) {
-		cout << "index " << start+B[i-start]-1 << "will be " << A2[i] << endl;
-		if (F[i-start]) A[start+B[i-start]-1] = A2[i];
+		if (F[i-start]) {
+			cout << "index " << start+B[i-start]-1 << " will be " << A2[i] << endl;
+			A[start+B[i-start]-1] = A2[i];
+		}
 	}
 	
 	cout << "After filter first half: " << endl;
