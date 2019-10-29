@@ -2,7 +2,7 @@ using namespace std;
 
 void scan(int* In, int* Out, int* B, int* C, int n) {
 	if (n==0) return;
-	if (n < 100) {
+	if (n < 50) {
 		Out[0] = In[0];
 		for (int i = 1; i < n; i++) Out[i] = Out[i-1]+In[i];
 		return;
