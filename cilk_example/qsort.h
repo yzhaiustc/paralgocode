@@ -24,7 +24,7 @@ void qsort(int* A, int start, int end) {
 	cout << "scan1 ok" << endl;
 
 	for (int i = start; i < end; i++) {
-		cout << B[i] << " ";
+		cout << B[i-start] << " ";
 	}
 	cout << endl;
 	
