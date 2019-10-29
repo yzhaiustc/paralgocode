@@ -33,7 +33,7 @@ void qsort(int* A, int start, int end) {
 	}
 	
 	int x = B[end-start-1];
-	cout << "x= " << x << endl;
+	cout << "x = " << x << endl;
 	A[x] = pivot;
 
 	cilk_for (int i = start; i < end; i++) {
@@ -45,6 +45,11 @@ void qsort(int* A, int start, int end) {
 	cilk_for (int i = start; i < end; i++) {
 		if (F[i-start]) A[x+B[i-start]] = A2[i];
 	}	
+	
+	cout << "After filter: " << endl;
+	for (int i = start; i < end; i++) {
+		cout << A[i] << " ";
+	}
 	
 	cilk_spawn
 	qsort(A, start, x);
