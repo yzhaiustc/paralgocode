@@ -20,8 +20,8 @@ int main(int argc, char** argv) {
 	scan(A, B, e1, e2, n);
 	t.stop(); cout << "time: " << t.get_total() << endl;
 	
-	for (int i = 0; i < n; i++) cout << B[i] << " ";
-	cout << endl;
+	//for (int i = 0; i < n; i++) cout << B[i] << " ";
+	//cout << endl;
 	
 	return 0;
 }
