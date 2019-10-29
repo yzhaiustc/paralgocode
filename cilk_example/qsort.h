@@ -2,7 +2,7 @@
 using namespace std;
 
 void qsort(int* A, int start, int end) {
-	cout << start << " " << end << endl;
+	cout << "from " << start << " to " << end << endl;
 	if (start == end) return;
 	if (start == end-1) return;
 	int pivot = A[start];
