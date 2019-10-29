@@ -32,6 +32,11 @@ void qsort(int* A, int start, int end) {
 		if (F[i-start]) A[start+B[i-start]-1] = A2[i];
 	}
 	
+	cout << "After filter first half: " << endl;
+	for (int i = start; i < end; i++) {
+		cout << A[i] << " ";
+	}
+	
 	int x = B[end-start-1];
 	cout << "x = " << x << endl;
 	A[start+x] = pivot;
