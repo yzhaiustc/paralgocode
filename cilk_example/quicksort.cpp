@@ -21,7 +21,7 @@ inline uint32_t hash32(uint32_t a) {
 int main(int argc, char** argv) {
 	int n = atoi(argv[1]);
 	int* A = new int[n];
-	cilk_for (int i = 0; i < n; i++) A[i] = (hash(i)) % (n*2);
+	cilk_for (int i = 0; i < n; i++) A[i] = (hash32(i)) % (n*2);
 	
 	timer t; t.start();
 	qsort(A, 0, n);
