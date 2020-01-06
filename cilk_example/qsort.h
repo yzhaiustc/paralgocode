@@ -10,11 +10,7 @@ int* e1;
 int* e2;
 
 void qsort(int* A, int start, int end) {
-	if (start == end) return;
-	if (start > end-100) {
-		sort(A+start, A+end);
-		return;
-	}
+	if (start >= end-1) return;
 	int pivot = A[start];
 
 	cilk_for (int i = start; i < end; i++) A2[i] = A[i];

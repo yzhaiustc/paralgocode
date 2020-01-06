@@ -15,9 +15,17 @@ int reduce(int* A, int n) {
 }
 
 int main() {
-	int* A = new int[100];
-	cilk_for (int i = 0; i < 100; i++) A[i] = i;
-	int x = reduce(A, 100);
+	if (argc != 2) {
+		cout << "Usage: ./reduce [num_elements]" << endl;
+		return 0;
+	}
+	int n = atoi(argv[1]);
+	int* A = new int[n];
+	cilk_for (int i = 0; i < n; i++) A[i] = i;
+	timer t; t.start();
+	int x = reduce(A, n);
+	t.stop();
+	cout << "time: " << t.get_total() << endl;
 	cout << x << endl;
 	
 	return 0;

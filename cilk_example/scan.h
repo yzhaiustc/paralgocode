@@ -2,9 +2,8 @@ using namespace std;
 
 void scan(int* In, int* Out, int* B, int* C, int n) {
 	if (n==0) return;
-	if (n < 50) {
+	if (n == 1) {
 		Out[0] = In[0];
-		for (int i = 1; i < n; i++) Out[i] = Out[i-1]+In[i];
 		return;
 	}
 	cilk_for (int i = 0; i < n/2; i++) 

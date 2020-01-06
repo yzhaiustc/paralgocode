@@ -8,6 +8,10 @@
 using namespace std;
 
 int main(int argc, char** argv) {
+	if (argc != 2) {
+		cout << "Usage: ./scan [num_elements]" << endl;
+		return 0;
+	}
 	int n = atoi(argv[1]);
 	cout << n << endl;
 	int* A = new int[n];

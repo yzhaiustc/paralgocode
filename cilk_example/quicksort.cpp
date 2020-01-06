@@ -19,6 +19,10 @@ inline uint32_t hash32(uint32_t a) {
 }
 
 int main(int argc, char** argv) {
+	if (argc != 2) {
+		cout << "Usage: ./qsort [num_elements]" << endl;
+		return 0;
+	}
 	int n = atoi(argv[1]);
 	int* A = new int[n];
 	cilk_for (int i = 0; i < n; i++) A[i] = (hash32(i)) % (n*2);
