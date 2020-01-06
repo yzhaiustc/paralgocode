@@ -1,6 +1,4 @@
 #include <algorithm>
-#include <windows.h>
-//#include <processthreadsapi.h>
 #include "scan.h"
 
 using namespace std;
