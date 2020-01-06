@@ -7,7 +7,10 @@
 using namespace std;
 
 void reduce(int* A, int n, int& ret) {
-	if (n == 1) return A[0];
+	if (n == 1) {
+		ret = A[0];
+		return;
+	}
 	int L, R;
 	par_do([&] () {reduce(A, n/2, L);}, 
 	   		[&] () {reduce(A+n/2, n-n/2, R);});
