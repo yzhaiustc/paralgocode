@@ -32,7 +32,6 @@ int main(int argc, char** argv) {
 	
 	timer t; t.start();
 	qsort(A, 0, n);
-		t = clock() - t;
 	t.stop(); cout << "time: " << t.get_total() << endl;
 	
 	//for (int i = 0; i < n; i++) cout << A[i] << " ";
