@@ -2,6 +2,7 @@
 #include <cstdio>
 #include <stdlib.h>
 #include "pbbslib/utilities.h"
+#include "pbbslib/get_time.h"
 #include "scan.h"
 using namespace std;
 
