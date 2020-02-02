@@ -3,11 +3,15 @@ CPFLAGS = -DHOMEGROWN
 LPFLAGS = -pthread
 CFLAGS = -mcx16 -O3 -std=c++11 -march=native -Wall $(CPFLAGS) 
 
-all:	reduce scan qsort
+all:	reduce seq_reduce scan qsort
 
 reduce:	reduce.cpp
 	$(CC) $(CFLAGS) reduce.cpp -o reduce $(LPFLAGS)
-	
+
+
+seq_reduce:	seq_reduce.cpp
+	$(CC) $(CFLAGS) seq_reduce.cpp -o seq_reduce $(LPFLAGS)
+
 scan: scan.cpp scan.h
 	$(CC) $(CFLAGS) scan.cpp -o scan $(LPFLAGS)
 	
