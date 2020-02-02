@@ -17,8 +17,8 @@ do
         echo $res_file
         ./seq_${algo[$i]} $len &> $res_file
         for thread in {1..64..1}
-        echo $thread
         do
+            echo $thread
             for n in {1..20..1}
             do
                 export NUM_THREADS=${thread}
